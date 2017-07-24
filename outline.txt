@@ -1,0 +1,37 @@
+Jessica Enright, Chris Jefferson, David Manlove, Ciaran McCreesh, Patrick Prosser, Simon Rogers, and James Trimble
+
+Modelling and Optimisation with Graphs
+
+Application case studies
+------------------------
+
+Kidney Exchange
+
+Network epidemiology (diseased cows).
+
+Computational Algebra
+
+Optimality: either morally, financially, or proofily.
+
+High level modelling
+--------------------
+
+Expressivity
+
+Compilation
+
+Multiple encodings. Some not obvious, e.g. kidney exchange
+
+Low level support
+-----------------
+
+Subgraph algorithms often have a constraint-based feel to them, but use different data structures.
+
+Bounding is quite different.
+
+Propagation inside subgraph algorithms, e.g. connectivity.
+
+Sharing nogoods, modulo theories.
+
+High level to glue all this together.
+
