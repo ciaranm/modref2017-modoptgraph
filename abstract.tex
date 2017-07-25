@@ -1,0 +1,68 @@
+% vim: set spell spelllang=en tw=100 :
+
+\documentclass{llncs}
+\usepackage[pass]{geometry}
+\usepackage{microtype}
+
+\newcommand*\samethanks[1][\value{footnote}]{\footnotemark[#1]}
+
+\title{Modelling and Optimisation with Graphs}
+
+\author{
+    Jessica Enright\inst{1}\thanks{This work was supported by the Engineering and Physical Sciences
+    Research Council [grant numbers EP/P026842/1 and EP/M508056/1]},
+    Chris Jefferson\inst{2}\samethanks[1] \and
+    David Manlove\inst{3} \and
+    Ciaran McCreesh\inst{3}\samethanks[1] \and
+    Patrick Prosser\inst{3}\samethanks[1] \and
+    Simon Rogers \inst{3} \and
+    James Trimble\inst{3}\samethanks[1]
+}
+
+\institute{
+    University of Stirling, Stirling, Scotland \and
+    University of St Andrews, St Andrews, United Kingdom \and
+    University of Glasgow, Glasgow, Scotland}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    Optimisation problems involving graphs are common. For example, network epidemiology
+    investigates the dynamics of a disease spreading over a graph, where the vertices represent
+    agents that can be infected, and edges the potentially infectious contacts between agents.  We
+    are interested in modifying the graph to limit the scope of an epidemic, by deleting vertices or
+    edges to limit its maximum component size.
+
+    In kidney exchange programs such as the UK Living Kidney Sharing Schemes, patients requiring a
+    kidney transplant who have a willing but incompatible donor may exchange donors with other
+    similar patients. The scheme seeks to maximise the number of transplants which take place,
+    subject to additional criteria; this problem can be modelled as a form of cycle packing in a
+    weighted directed graph.
+
+    A major goal in metabolomics is improving metabolite identification from mass spectrometry
+    experiments. One route is through the comparison of measured fragmentation spectra with a
+    database. Constraining results by shared graph substructure could lead to more specific result
+    sets.
+
+    And in computational algebra, many problems involving semigroups and monoids can be
+    reinterpreted as graph homomorpism questions.
+
+    This talk discusses the work we plan to carry out over the next three years, aimed at simplify
+    and improving the modelling and solving process for such problems.  We will develop high level
+    modelling support for graphs for the Essence' constraint modelling language.  Being able to
+    express graph operations directly will reduce the modelling cost, and compiling from high-level
+    models will simplify automatic reformulation and the use of alternative encodings.
+
+    To solve these problems, we envision a hybrid approach, combining constraint programming or
+    mixed integer solvers with dedicated subgraph algorithms. Although state-of-the-art subgraph
+    algorithms often have a constraint-based feel to them, they use tailored data structures and
+    propagation routines, which are critical for scalability. Propagating certain kinds of
+    constraints (such as connectivity) can be done directly inside subgraph algorithms, but we
+    believe a ``subgraphs modulo theories'' approach involving multiple communicating solvers is
+    necessary for more complex problems. A final advantage of high level modelling, then, is in
+    automating the configuration of such approaches.
+\end{abstract}
+
+\end{document}
