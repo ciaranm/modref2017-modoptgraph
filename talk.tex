@@ -177,7 +177,7 @@
     Jessica Enright,
     Chris Jefferson,
     David Manlove,
-    Ciaran McCreesh,
+    \textbf{Ciaran McCreesh},
     Patrick Prosser,
     Simon Rogers,
     James Trimble,
@@ -199,13 +199,55 @@
 
 \section{Application Case Studies}
 
+\begin{frame}{Motivation}
+    \begin{itemize}
+        \item Lots of interesting, practical, important optimisation problems involve graphs and
+            subgraphs, together with side constraints which cannot easily be expressed in graph
+            terms.
+    \end{itemize}
+\end{frame}
+
 \begin{frame}{Kidney Exchange}
+    \only<1>{
+        \includegraphics*[keepaspectratio=true,scale=0.25]{kidney1.png}
+    }
+    \only<2>{
+        \includegraphics*[keepaspectratio=true,scale=0.25]{kidney2.png}
+    }
+    \only<3>{
+        \includegraphics*[keepaspectratio=true,scale=0.35]{kidney4.png}
+    }
+    \only<4>{
+        \includegraphics*[keepaspectratio=true,scale=0.25]{kidney3.png}
+    }
 \end{frame}
 
 \begin{frame}{Network Epidemiology (Diseased Cows)}
+    \only<1>{
+        \includegraphics*[keepaspectratio=true,scale=0.25]{cows3.png}
+    }
+    \only<2>{
+        \includegraphics*[keepaspectratio=true,scale=0.20]{cows1.png}
+    }
+    \only<3>{
+        \includegraphics*[keepaspectratio=true,scale=0.25]{cows2.png}
+    }
+    \only<4>{
+        \begin{itemize}
+            \item Delete as few edges as possible from a graph until the maximum component size is
+                less than $k$.
+            \item There's a really elegant CP model for this.
+            \item But a dedicated treewidth-based algorithm works better in practice\ldots
+        \end{itemize}
+    }
 \end{frame}
 
 \begin{frame}{Metabolomics}
+    \only<1>{
+        \includegraphics*[keepaspectratio=true,scale=0.45]{metabolomics1.png}
+    }\only<2>{
+        \includegraphics*[keepaspectratio=true,scale=0.45]{metabolomics2.png}
+    }
 \end{frame}
 
 \begin{frame}{Computational Algebra}
@@ -213,21 +255,52 @@
 
 \section{High Level Modelling}
 
-\begin{frame}{Expressiveness}
+\begin{frame}{Essence'}
+    \begin{itemize}
+        \item Essence' is a high level modelling language developed at St~Andrews.
+        \item Objectively over nine thousand times better than MiniZinc.
+    \end{itemize}
 \end{frame}
 
-\begin{frame}{Compilation}
+\begin{frame}{Expressiveness}
+    \begin{itemize}
+        \item We'd like to work with graphs as high level types.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Compilation and Automatic Reformulation}
+    \begin{itemize}
+        \item There is more than one way to represent a graph.
+        \item Kidney exchange in particular has some very clever modelling techniques which we'd
+            like to reuse for other problems.
+        \item We do \emph{not} envision graph variables within CP / MIP solvers.
+    \end{itemize}
 \end{frame}
 
 \section{Solver Support}
 
-\begin{frame}{Subgraph Solvers}
+\begin{frame}{Subgraph Modulo Theories}
+    \begin{itemize}
+        \item State of the art subgraph solvers have a strong CP feel to them, but with different
+            data structures, propagation techniques, and algorithms.
+
+        \item We think it might be possible to share nogoods between solvers.
+
+        \item High level modelling might make this less of a pain to set up.
+    \end{itemize}
 \end{frame}
 
-\begin{frame}{Subgraphs Modulo Theories}
-\end{frame}
-
-\begin{frame}{Automatic Configuration}
+\begin{frame}{Microstructure / Weighted Clique}
+    \begin{itemize}
+        \item Pet project: reducing certain constraint optimisation problems to maximum weight
+            clique, via a microstructure-like encoding.
+        \item CP last year: using an unweighted clique solver is actually a really good idea for
+            maximum common subgraph.
+        \item CP this year: weighted clique solvers are terrible because they've been benchmarked on
+            bad instances.
+        \item CP next year: we have a new weighted clique solver and I was right the whole time and
+            I'm not crazy!
+    \end{itemize}
 \end{frame}
 
 \section{Hiring a Postdoc! Google AR1972SB}
